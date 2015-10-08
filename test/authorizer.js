@@ -60,6 +60,7 @@ tap.test('it responds with 401 if session exists but LDAP lookup fails', functio
       }
     }, function (err, s) {
       t.equal(err.statusCode, 404)
+      lookupUser.done()
       authorizer.end()
       t.end()
     })

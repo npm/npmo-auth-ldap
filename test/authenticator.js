@@ -40,6 +40,8 @@ tap.test('it generates a token and returns a session on successful login', funct
     t.equal(err, null)
 
     client.hgetall(sessionLookupPrefix + s.token, function (err, user) {
+      t.equal(err, null)
+      login.done()
       t.equal(user.name, 'foo')
       t.equal(user.email, 'ben@example.com')
       t.end()
@@ -63,6 +65,7 @@ tap.test('it returins a 401 if login fails', function (t) {
       email: 'ben@example.com'
     }
   }, function (err, s) {
+    login.done()
     authenticator.end()
     t.equal(err.statusCode, 401)
     t.end()
