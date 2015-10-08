@@ -1,6 +1,6 @@
 {
   "name": "@npm/npmo-auth-ldap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "npm On-Site plugin for authenticating against LDAP.",
   "main": "index.js",
   "scripts": {
