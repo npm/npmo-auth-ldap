@@ -4,7 +4,7 @@ var Session = require('../lib/session')
 var tap = require('tap')
 
 var sessionTimeoutKey = '_ldap_session_abc123'
-var sessionLookupKey = '_ldap_user_abc123'
+var sessionLookupKey = 'user-abc123'
 var user = {name: 'bcoe', email: 'ben@example.com'}
 
 function deleteTokens (t) {
