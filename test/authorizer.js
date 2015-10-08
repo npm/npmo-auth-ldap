@@ -29,7 +29,7 @@ tap.test('it responds with session object if lookup is successful', function (t)
     ldapApi: 'http://example.com'
   })
 
-  session.populate('abc123', user, function (err) {
+  session.set('abc123', user, function (err) {
     t.equal(err, null)
     authorizer.authorize({
       headers: {

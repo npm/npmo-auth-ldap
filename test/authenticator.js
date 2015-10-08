@@ -3,8 +3,6 @@ var nock = require('nock')
 var Authenticator = require('../lib/authenticator')
 var tap = require('tap')
 
-var sessionLookupPrefix = '_ldap_user_'
-
 tap.test('it returns a 500 error if credentials object is invalid', function (t) {
   var authenticator = new Authenticator({
     ldapApi: 'http://example.com'
@@ -38,18 +36,12 @@ tap.test('it generates a token and returns a session on successful login', funct
     t.equal(s.user.name, 'foo')
     t.equal(s.user.email, 'ben@example.com')
     t.equal(err, null)
-
-    client.hgetall(sessionLookupPrefix + s.token, function (err, user) {
-      t.equal(err, null)
-      login.done()
-      t.equal(user.name, 'foo')
-      t.equal(user.email, 'ben@example.com')
-      t.end()
-    })
+    login.done()
+    t.end()
   })
 })
 
-tap.test('it returins a 401 if login fails', function (t) {
+tap.test('it returns a 401 if login fails', function (t) {
   var authenticator = new Authenticator({
     ldapApi: 'http://example.com'
   })
