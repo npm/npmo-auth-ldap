@@ -1,11 +1,11 @@
 {
-  "name": "npmo-auth-ldap",
-  "version": "1.0.0",
+  "name": "@npm/npmo-auth-ldap",
+  "version": "1.0.3",
   "description": "npm On-Site plugin for authenticating against LDAP.",
   "main": "index.js",
   "scripts": {
     "pretest": "standard",
-    "test": "tap --coverage ./test/*"
+    "test": "tap --timeout=5000 --coverage ./test/*"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,13 @@
   },
   "homepage": "https://github.com/npm/npmo-auth-ldap#readme",
   "dependencies": {
-    "ldapjs": "^0.7.1"
+    "lodash": "^3.10.1",
+    "redis": "^2.1.0",
+    "request": "^2.64.0",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {
+    "nock": "^2.13.0",
     "standard": "^5.3.1",
     "tap": "^2.0.0"
   }
